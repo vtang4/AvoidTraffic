@@ -9,14 +9,14 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/destination"
         android:layout_width="78dp"
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Destination"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/destination_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -24,29 +24,29 @@
         android:id="@+id/graph"
         android:layout_width="385dp"
         android:layout_height="246dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <android.support.constraint.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="textView3,editText2,editText5,button,textView4,graph" />
+        app:constraint_referenced_ids="depart_time,destination_edit_text,depart_time_edit_text,save,destination,graph" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/depart_time"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Depart Time"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintBottom_toTopOf="@+id/depart_time_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/destination_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -54,12 +54,12 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/depart_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/depart_time_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginBottom="8dp"
@@ -72,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
