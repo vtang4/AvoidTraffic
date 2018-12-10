@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Avoid Traffic</string>
+    <string name="google_maps_api_key">AIzaSyDIoyl48T6r8uVOLSmKJHoCAYVKe7ydaU8</string>
+    <string name="destination">Destination</string>
+    <string name="address_hint">Address</string>
+    <string name="depart_time">Depart Time</string>
+    <string name="save">Save</string>
+
 </resources>

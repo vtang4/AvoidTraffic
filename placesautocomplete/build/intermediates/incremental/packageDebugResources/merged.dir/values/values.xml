@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="reference" name="pacv_placesAutoCompleteTextViewStyle"/>
+    <declare-styleable name="PlacesAutocompleteTextView"><attr format="string" name="pacv_googleMapsApiKey"/><attr format="string" name="pacv_adapterClass"/><attr format="string" name="pacv_historyFile"/><attr format="string" name="pacv_languageCode"/><attr format="boolean" name="pacv_clearEnabled"/><attr format="enum" name="pacv_resultType">
+            <enum name="geocode" value="0"/>
+            <enum name="address" value="1"/>
+            <enum name="establishment" value="2"/>
+            <enum name="no_type" value="3"/>
+        </attr></declare-styleable>
+    <string name="pacv_default_history_file_name">pacv_history.json</string>
+    <style name="PACV.TextAppearance.PlacesAutoComplete" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="PACV.Widget.PlacesAutoCompleteTextView" parent="android:Widget.Holo.Light.AutoCompleteTextView">
+        <item name="pacv_historyFile">@string/pacv_default_history_file_name</item>
+        <item name="pacv_resultType">address</item>
+    </style>
+</resources>
