@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,65 +12,79 @@
     <TextView
         android:id="@+id/destination"
         android:layout_width="78dp"
-        android:layout_height="24dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
+        android:id="@+id/autocomplete"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Destination"
-        app:layout_constraintBottom_toTopOf="@+id/destination_edit_text"
+        android:textSize="20dp"
+        android:hint="@string/address_hint"
+        app:layout_constraintBottom_toTopOf="@+id/depart_time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination"
+        app:pacv_languageCode="en"
+        app:pacv_resultType="no_type"
+        app:pacv_clearEnabled="true"
+        app:pacv_googleMapsApiKey="@string/google_maps_api_key" />
+    <!--app:pacv_adapterClass=".PlacesAutocompleteAdapter"-->
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
-        android:layout_width="385dp"
-        android:layout_height="246dp"
-        app:layout_constraintBottom_toTopOf="@+id/save"
-        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--<com.jjoe64.graphview.GraphView-->
+        <!--android:id="@+id/graph"-->
+        <!--android:layout_width="385dp"-->
+        <!--android:layout_height="246dp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/save"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
 
     <android.support.constraint.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="depart_time,destination_edit_text,depart_time_edit_text,save,destination,graph" />
+        app:constraint_referenced_ids="depart_time,depart_time_edit_text,save,destination,autocomplete" />
 
     <TextView
         android:id="@+id/depart_time"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Depart Time"
+        android:text="@string/depart_time"
         app:layout_constraintBottom_toTopOf="@+id/depart_time_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/destination_edit_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/depart_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/depart_time_edit_text"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
+
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/graph"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
+    <!--app:layout_constraintBottom_toTopOf="@+id/graph"-->
 
     <Button
         android:id="@+id/save"
@@ -78,7 +93,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
