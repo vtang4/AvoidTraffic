@@ -5,12 +5,12 @@
     <item
         android:id="@+id/show_x"
         android:orderInCategory="100"
-        android:title="Show the clear button"
+        android:title="@string/show_clear"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/hide_x"
         android:orderInCategory="100"
-        android:title="Hide the clear button"
+        android:title="@string/hide_clear"
         app:showAsAction="never" />
 </menu>
