@@ -62,6 +62,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
     private Button resetButton;
 
 
+
 //   private GraphView graphView;
 
     PlacesAutocompleteTextView mAutocomplete;
@@ -77,7 +78,6 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
     // Google client to interact with Google API
 
     private GoogleApiClient mGoogleApiClient;
-
 
     double latitude;
     double longitude;
@@ -97,7 +97,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
 
         mAutocomplete = findViewById(R.id.autocomplete);
         departTimeTextView = findViewById(R.id.depart_time);
-        departTime = findViewById(R.id.depart_time_edit_text);
+       // departTime = findViewById(R.id.depart_time_edit_text);
 //              destination = findViewById(R.id.destination_edit_text);
         destinationTextView = findViewById(R.id.destination);
         //       graphView = findViewById(R.id.graph);
@@ -148,10 +148,9 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
                     address=getAddress();
                     Intent intent = new Intent(ActivityUsingLocationAPI.this, Results.class);
                     intent.putExtra("tvDestination",mAutocomplete.getText().toString());
-                    intent.putExtra("tvTime",departTime.getText().toString());
+                    //intent.putExtra("tvTime",departTime.getText().toString());
                     intent.putExtra("tvAddress",address);
-                    System.out.println("memer");
-                    System.out.println(address);
+
 
                     startActivity(intent);
 
@@ -175,19 +174,19 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
                 @Override
                 public void onClick(View v) {
 
-                    departTime.setText(" ");
+                   // departTime.setText(" ");
                     mAutocomplete.setText(" ");
 
-                    tvTime.setText("");
+                    //tvTime.setText("");
                     tvDestination.setText("");
                     tvAddress.setText("");
 
-                    tvTime.setVisibility(View.GONE);
+                    //tvTime.setVisibility(View.GONE);
                     tvDestination.setVisibility(View.GONE);
                     tvAddress.setVisibility(View.GONE);
 
                     mAutocomplete.setVisibility(View.VISIBLE);
-                    departTime.setVisibility(View.VISIBLE);
+                    //departTime.setVisibility(View.VISIBLE);
 
 
                 }
@@ -453,6 +452,8 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
     {
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
+
+
 
 
 
