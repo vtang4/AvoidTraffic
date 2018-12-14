@@ -56,10 +56,9 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
     private TextView destinationTextView;
     private TextView tvTime;
     private TextView tvDestination;
-
+    private TextView tvAddress;
 
     private Button saveButton;
-    private TextView tvAddress;
     private Button resetButton;
 
 
@@ -68,7 +67,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
     PlacesAutocompleteTextView mAutocomplete;
 
     // LogCat tag
-    private static final String TAG = MainActivity.class.getSimpleName();
+    //private static final String TAG = MainActivity.class.getSimpleName();
 
     private final static int PLAY_SERVICES_REQUEST = 1000;
     private final static int REQUEST_CHECK_SETTINGS = 2000;
@@ -82,7 +81,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
 
     double latitude;
     double longitude;
-
+    String address;
    ArrayList<String> permissions = new ArrayList<>();
    PermissionUtils permissionUtils;
 
@@ -93,7 +92,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
+        Intent intent = new Intent(ActivityUsingLocationAPI.this, Results.class);
 
 
         mAutocomplete = findViewById(R.id.autocomplete);
@@ -146,17 +145,20 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
                 if(mLastLocation != null){
                     latitude = mLastLocation.getLatitude();
                     longitude = mLastLocation.getLongitude();
-                    getAddress();
+                    address=getAddress();
+                    Intent intent = new Intent(ActivityUsingLocationAPI.this, Results.class);
+                    intent.putExtra("tvDestination",mAutocomplete.getText().toString());
+                    intent.putExtra("tvTime",departTime.getText().toString());
+                    intent.putExtra("tvAddress",address);
+                    System.out.println("memer");
+                    System.out.println(address);
 
-                    tvDestination.setText(mAutocomplete.getText().toString());
-                    tvTime.setText(departTime.getText().toString());
+                    startActivity(intent);
 
+                    //tvDestination.setVisibility(View.VISIBLE);
+                    //
+                    // tvTime.setVisibility(View.VISIBLE);
 
-                    mAutocomplete.setVisibility(View.GONE);
-                    departTime.setVisibility(View.GONE);
-
-                    tvDestination.setVisibility(View.VISIBLE);
-                    tvTime.setVisibility(View.VISIBLE);
 
 
                 }
@@ -237,7 +239,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
 
     }
 
-    public void getAddress(){
+    public String getAddress(){
 
         Address locationAddress = getAddress(latitude,longitude);
 
@@ -277,14 +279,13 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
 
 
 
-                tvAddress.setText(currentLocation);
-                tvAddress.setVisibility(View.VISIBLE);
 
-
-            }
+                return currentLocation;
 
             }
 
+            }
+        return null;
 
     }
 
@@ -397,8 +398,7 @@ public class ActivityUsingLocationAPI extends AppCompatActivity implements Conne
      */
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = "
-                + result.getErrorCode());
+
     }
 
     @Override
