@@ -5,5 +5,8 @@
     <string name="address_hint">Address</string>
     <string name="depart_time">Depart Time</string>
     <string name="save">Save</string>
+    <string name="show_clear">Show clear button</string>
+    <string name="hide_clear">Hide clear button</string>
+    <string name="reset">Reset</string>
 
 </resources>
